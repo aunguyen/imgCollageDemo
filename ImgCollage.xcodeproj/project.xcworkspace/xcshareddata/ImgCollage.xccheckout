@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DE305CF4-8D6A-43AD-8FE7-C6EB91E1BCF7</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ImgCollage</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DE7E2EDF1F54D35466933A1AB814AA28C5743D55</key>
+		<string>https://github.com/aunguyen/imgCollageDemo.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ImgCollage.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DE7E2EDF1F54D35466933A1AB814AA28C5743D55</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aunguyen/imgCollageDemo.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DE7E2EDF1F54D35466933A1AB814AA28C5743D55</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DE7E2EDF1F54D35466933A1AB814AA28C5743D55</string>
+			<key>IDESourceControlWCCName</key>
+			<string>imgCollageDemo</string>
+		</dict>
+	</array>
+</dict>
+</plist>

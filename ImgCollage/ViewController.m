@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 
+
 @interface ViewController ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIScrollViewDelegate>{
     UITapGestureRecognizer* tap;
     UIPanGestureRecognizer* pan;
@@ -17,6 +18,7 @@
     UIView* tempImgView;
     UIImageView* tempIV;
 }
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 @property (weak, nonatomic) IBOutlet UIImageView *img1;
 @property (weak, nonatomic) IBOutlet UIImageView *img2;
 @property (weak, nonatomic) IBOutlet UIImageView *img3;
@@ -26,6 +28,9 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll1;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll2;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroll3;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *h1;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *h2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *h3;
 
 @end
 
@@ -44,16 +49,23 @@
 }
 
 - (void)addGestureForView:(UIView*)view{
-    pinch = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(scaleImg:)];
-    tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectImg:)];
+    pinch     = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(scaleImg:)];
+    tap       = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(selectImg:)];
     longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(getImg:)];
     [longPress setMinimumPressDuration:1];
+    pan       = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(resizeView:)];
+    [pan setMinimumNumberOfTouches:2];
     
     [view viewWithTag:100].userInteractionEnabled = YES;
     view.userInteractionEnabled = YES;
+    [view addGestureRecognizer:pan];
     [view addGestureRecognizer:pinch];
     [view addGestureRecognizer:tap];
     [[view viewWithTag:100] addGestureRecognizer:longPress];
+}
+
+- (void)addResizeRectToView:(UIView*)view{
+    
 }
 
 - (void)initZoomForScrollView:(UIScrollView*)sv{
@@ -65,6 +77,10 @@
 }
 
 - (void)setupLayout{
+    _h1.constant = _contentView.frame.size.height/3;
+    _h2.constant = _contentView.frame.size.height/3;
+    _h3.constant = _contentView.frame.size.height/3;
+    
     _scroll1.layer.borderColor = [UIColor greenColor].CGColor;
     _scroll2.layer.borderColor = [UIColor greenColor].CGColor;
     _scroll3.layer.borderColor = [UIColor greenColor].CGColor;
@@ -72,6 +88,10 @@
     _scroll1.layer.borderWidth = 1.5;
     _scroll2.layer.borderWidth = 1.5;
     _scroll3.layer.borderWidth = 1.5;
+    
+    [_scroll1 setMultipleTouchEnabled:NO];
+    [_scroll2 setMultipleTouchEnabled:NO];
+    [_scroll3 setMultipleTouchEnabled:NO];
     
     tempIV = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 200, 120)];
     tempIV.alpha = 0;
@@ -115,6 +135,23 @@
     
 }
 
+- (void)resizeView:(UIPanGestureRecognizer*)panGesture{
+    CGPoint location = [panGesture locationInView:self.view];
+    
+    if (CGRectContainsPoint(_view1.frame, location)) {
+        NSLog(@"panning in view1");
+    }
+    
+    if (CGRectContainsPoint(_view2.frame, location)) {
+        NSLog(@"panning in view2");
+    }
+    
+    if (CGRectContainsPoint(_view3.frame, location)) {
+        NSLog(@"panning in view3");
+    }
+    
+}
+
 - (void)scaleImg:(UIPinchGestureRecognizer*)pinchGesture{
     [((UIScrollView*)pinchGesture.view) setZoomScale:pinchGesture.scale animated:YES];
 }
@@ -127,11 +164,17 @@
     [self presentViewController:ipc animated:YES completion:nil];
 }
 
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
-    
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info{
     [picker dismissViewControllerAnimated:YES completion:nil];
     ((UIImageView*)[tempImgView viewWithTag:100]).image = [info objectForKey:UIImagePickerControllerOriginalImage];
 }
+
+//ios 9+
+//-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+//    
+//    [picker dismissViewControllerAnimated:YES completion:nil];
+//    ((UIImageView*)[tempImgView viewWithTag:100]).image = [info objectForKey:UIImagePickerControllerOriginalImage];
+//}
 
 
 - (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView {

@@ -12,7 +12,7 @@
 		AD441C901C3C22FD00A390FA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AD441C8F1C3C22FD00A390FA /* ViewController.m */; };
 		AD441C931C3C22FD00A390FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD441C911C3C22FD00A390FA /* Main.storyboard */; };
 		AD441C951C3C22FD00A390FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD441C941C3C22FD00A390FA /* Assets.xcassets */; };
-		AD441C981C3C22FD00A390FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD441C961C3C22FD00A390FA /* LaunchScreen.storyboard */; };
+		ADDE23061C46661000C2C5E6 /* LaunchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ADDE23051C46661000C2C5E6 /* LaunchView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +24,8 @@
 		AD441C8F1C3C22FD00A390FA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		AD441C921C3C22FD00A390FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AD441C941C3C22FD00A390FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AD441C971C3C22FD00A390FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD441C991C3C22FD00A390FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADDE23051C46661000C2C5E6 /* LaunchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 				AD441C8F1C3C22FD00A390FA /* ViewController.m */,
 				AD441C911C3C22FD00A390FA /* Main.storyboard */,
 				AD441C941C3C22FD00A390FA /* Assets.xcassets */,
-				AD441C961C3C22FD00A390FA /* LaunchScreen.storyboard */,
+				ADDE23051C46661000C2C5E6 /* LaunchView.xib */,
 				AD441C991C3C22FD00A390FA /* Info.plist */,
 				AD441C881C3C22FD00A390FA /* Supporting Files */,
 			);
@@ -110,6 +110,7 @@
 				TargetAttributes = {
 					AD441C841C3C22FD00A390FA = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = N8EKB44LT6;
 					};
 				};
 			};
@@ -136,7 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD441C981C3C22FD00A390FA /* LaunchScreen.storyboard in Resources */,
+				ADDE23061C46661000C2C5E6 /* LaunchView.xib in Resources */,
 				AD441C951C3C22FD00A390FA /* Assets.xcassets in Resources */,
 				AD441C931C3C22FD00A390FA /* Main.storyboard in Resources */,
 			);
@@ -164,14 +165,6 @@
 				AD441C921C3C22FD00A390FA /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AD441C961C3C22FD00A390FA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AD441C971C3C22FD00A390FA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,11 +254,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ImgCollage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ANStudio.ImgCollage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -273,11 +269,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ImgCollage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ANStudio.ImgCollage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -300,6 +299,7 @@
 				AD441C9E1C3C22FD00A390FA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
